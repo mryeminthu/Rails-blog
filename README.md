@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>YMT's Blog</h1>
+  <h1>Rails Blog</h1>
 </div>
 <a name="readme-top"></a>
 
@@ -22,7 +22,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 YMT's Blog <a name="about-project"></a>
+# 📖 Rails Blog <a name="about-project"></a>
 
 > The Blog app is similar to a regular blog website, functioning as a complete platform displaying various blog posts. Users can participate by leaving comments and expressing their likes on interesting posts.
 
