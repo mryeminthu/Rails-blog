@@ -3,17 +3,8 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
-  def counters_update
-    likes_counter_update
-    comments_counter_update
-  end
-
-  def comments_counter_update
-    update(comments_counter: comments.count)
-  end
-
-  def likes_counter_update
-    update(likes_counter: likes.count)
+  def posts_counter_update
+    author.update(posts_counter: author.posts.count)
   end
 
   def five_most_recent_comments
