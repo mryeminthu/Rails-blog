@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
     new_user = User.create(name: 'Zaw Mae Lone')
     first_post = Post.create(title: 'First post', author: new_user, created_at: 5.days.ago)
     second_post = Post.create(title: 'Second post', author: new_user, created_at: 3.days.ago)
-    third_post = Post.create(title: 'Third post', author: new_user, created_at: 1.days.ago)    
+    third_post = Post.create(title: 'Third post', author: new_user, created_at: 1.days.ago)
     expect(new_user.three_most_recent_posts).to eq([third_post, second_post, first_post])
   end
 end
