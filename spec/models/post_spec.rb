@@ -11,7 +11,14 @@ RSpec.describe Post, type: :model do
 
     it 'requires title to be less than 251 characters' do
       post = Post.new(
-        title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam sed purus ullamcorper, aliquam libero ac, euismod augue. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam sed purus ullamcorper, aliquam libero ac, euismod augue', author: user
+        title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        Aenean commodo ligula eget dolor. Aenean massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes,
+         nascetur ridiculus mus. Nullam sed purus ullamcorper,
+         aliquam libero ac, euismod augue. Cum sociis natoque
+         penatibus et magnis dis parturient montes, nascetur
+         ridiculus mus. Nullam sed purus ullamcorper,
+         aliquam libero ac, euismod augue', author: user
       )
       expect(post).to_not be_valid
     end
