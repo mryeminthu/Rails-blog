@@ -1,5 +1,5 @@
-class UsersController < 
-  
+class UsersController <
+
   def index
     @users = User.all
   end
@@ -8,6 +8,4 @@ class UsersController <
     @user = User.find(params[:id])
     @posts = @user.posts
   end
-
 end
-  
