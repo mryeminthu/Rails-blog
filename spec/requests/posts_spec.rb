@@ -29,6 +29,10 @@ RSpec.describe 'Posts', type: :request do
     it 'returns a success response' do
       expect(response).to have_http_status(:success)
     end
+
+    it 'renders the index template' do
+      expect(response).to render_template(:index)
+    end
   end
 
   describe 'GET /users/:user_id/posts/:id' do
