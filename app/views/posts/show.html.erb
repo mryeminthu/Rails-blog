@@ -1,11 +1,16 @@
 <div class="user-posts">
   <div class="post">
-    <div class="title-cmt">  
-        <h3><%= @post.title %></h3>
-        <div>
-            <span>Comments: <%= @post.comments_counter %></span>
-            <span>Likes: <%= @post.likes_counter %></span>
-        </div>
+    <div class="title-cmt">
+      <h3><%= @post.title %></h3>
+      <div>
+        <span>Comments: <%= @post.comments_counter %></span>
+        <span id="likes-count">
+          Likes: <%= @post.likes_counter %>
+          <%= button_to "Like", like_post_user_post_path(@post.author, @post), method: :post, remote: true, format: :js, data: { type: 'script', disable_with: 'Liking...' } %>
+        </span>
+
+
+      </div>
     </div>
     <p><%= @post.text %></p>
   </div>
@@ -22,5 +27,7 @@
         <p>No comments yet!</p>
       <% end %>
     </div>
+
+    <%= render partial: 'comments/form', locals: { post: @post, comment: Comment.new } %>
   </div>
 </div>
