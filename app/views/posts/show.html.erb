@@ -31,6 +31,8 @@
 
   <div class="user-comments">
     <div class="comments">
+      <%= render partial: 'comments/form', locals: { post: @post, comment: Comment.new } %>
+
       <% if @comments.any? %>
         <% @comments.each do |comment| %>
           <div class="comment">
@@ -41,8 +43,5 @@
         <p>No comments yet!</p>
       <% end %>
     </div>
-
-    <%= render partial: 'comments/form', locals: { post: @post, comment: Comment.new } %>
   </div>
 </div>
-

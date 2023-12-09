@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :set_post
+  before_action :set_post, except: [:new]
+
+  def new
+    @comment = Comment.new
+  end
 
   def create
     @comment = @post.comments.build(comment_params.merge(user: @current_user))
