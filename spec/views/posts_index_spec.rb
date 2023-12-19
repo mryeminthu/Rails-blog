@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'User Features', type: :feature do
   before do
     @officer = User.create!(id: 5, name: 'Officer',
@@ -70,3 +69,4 @@ RSpec.describe 'User Features', type: :feature do
     end
   end
 end
+

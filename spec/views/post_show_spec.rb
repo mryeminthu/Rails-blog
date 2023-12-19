@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'User Features', type: :feature do
   before do
     @author_user = User.create!(name: 'Ella', photo: 'https://example.com/ella_profile.png',
@@ -52,3 +51,4 @@ RSpec.describe 'User Features', type: :feature do
     end
   end
 end
+
