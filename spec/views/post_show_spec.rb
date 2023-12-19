@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe 'User Features', type: :feature do
   before do
     @author_user = User.create!(name: 'Ella', photo: 'https://example.com/ella_profile.png',
@@ -37,7 +38,7 @@ RSpec.describe 'User Features', type: :feature do
 
     it 'displays comments' do
       visit user_post_path(@commenter_user, @post)
-      expect(@post.five_most_recent_comments.map(&:text)).to include('My meaningful comment.')
+      expect(@post.comments.map(&:text)).to include('My meaningful comment.')
     end
 
     it 'displays the number of comments' do

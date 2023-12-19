@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe 'User Features', type: :feature do
   before do
     @officer = User.create!(id: 5, name: 'Officer',
@@ -38,8 +39,7 @@ RSpec.describe 'User Features', type: :feature do
     end
 
     it 'displays a pagination button for posts' do
-      visit user_path(@officer)
-      click_link('See all posts')
+      visit user_posts_path(@officer)
       expect(page).to have_css('.pagination-button')
     end
   end
@@ -66,6 +66,16 @@ RSpec.describe 'User Features', type: :feature do
       visit user_path(@student)
       click_link @student_post.title
       expect(current_path).to eq(user_post_path(@student, @student_post))
+    end
+
+    it 'displays a section for pagination if there are more posts than fit on the view' do
+      5.times do |n|
+        Post.create!(title: "Test Post #{n + 1}", text: "Test post text #{n + 1}",
+                     comments_counter: 0, likes_counter: 2, author: @student)
+      end
+
+      visit user_posts_path(@student)
+      expect(page).to have_css('.pagination-button')
     end
   end
 end
