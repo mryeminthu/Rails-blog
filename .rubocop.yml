@@ -1,5 +1,4 @@
 AllCops:
-  NewCops: enable
   Exclude:
     - "db/**/*"
     - "bin/*"
@@ -7,8 +6,8 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
-
   DisplayCopNames: true
+  NewCops: enable # This line is removed in the corrected version
 
 Layout/LineLength:
   Max: 120
@@ -39,7 +38,7 @@ Style/AndOr:
 Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
-  EnforcedStyle: never
+  EnforcedStyle: never # Fixing the configuration option
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
