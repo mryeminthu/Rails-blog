@@ -2,10 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'User Features', type: :feature do
   before do
-    @author_user = User.create!(name: 'Ella', photo: 'https://example.com/ella_profile.png', bio: 'Educator from Thailand.')
-    @commenter_user = User.create!(name: 'Ye Min', photo: 'https://example.com/may_profile.png', bio: 'Student from Myanmar.')
+    @author_user = User.create!(name: 'Ella', photo: 'https://example.com/ella_profile.png',
+                                bio: 'Educator from Thailand.')
+    @commenter_user = User.create!(name: 'Ye Min', photo: 'https://example.com/may_profile.png',
+                                   bio: 'Student from Myanmar.')
 
-    @post = Post.create!(title: 'Wayyyyy', text: 'Hello, this is my first post.', comments_counter: 0, likes_counter: 2, author: @author_user)
+    @post = Post.create!(title: 'Wayyyyy', text: 'Hello, this is my first post.', comments_counter: 0,
+                         likes_counter: 2, author: @author_user)
     @comment = Comment.create(post: @post, user: @commenter_user, text: 'My meaningful comment.')
     @like = Like.create(post: @post, user: @commenter_user)
   end

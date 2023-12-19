@@ -3,17 +3,25 @@ require 'rails_helper'
 RSpec.describe 'User Features', type: :feature do
   before do
     @officer = User.create!(id: 5, name: 'Officer',
-                            photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png', bio: 'Law enforcement officer')
+                            photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png',
+                            bio: 'Law enforcement officer')
     @student = User.create!(id: 6, name: 'Student',
-                            photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png', bio: 'High school student')
-    
-    Post.create!(title: 'Introduction', text: 'Hello, this is my introduction.', comments_counter: 0, likes_counter: 2, author: @officer)
-    Post.create!(title: 'Meeting new people', text: 'Hi, everyone! Nice to meet you.', comments_counter: 0, likes_counter: 2, author: @officer)
-    Post.create!(title: 'Police life', text: 'Sharing insights into my life as a police officer.', comments_counter: 0, likes_counter: 2, author: @officer)
-    Post.create!(title: 'Law enforcement challenges', text: 'Discussing challenges faced in law enforcement.', comments_counter: 0, likes_counter: 2, author: @officer)
-    Post.create!(title: 'Day in the life', text: 'Giving you a glimpse of my typical day.', comments_counter: 0, likes_counter: 2, author: @officer)
+                            photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png',
+                            bio: 'High school student')
 
-    @student_post = Post.create!(title: 'First day at school', text: 'Exciting times on my first day!', comments_counter: 0, likes_counter: 2, author: @student)
+    Post.create!(title: 'Introduction', text: 'Hello, this is my introduction.', comments_counter: 0, likes_counter: 2,
+                 author: @officer)
+    Post.create!(title: 'Meeting new people', text: 'Hi, everyone! Nice to meet you.', comments_counter: 0,
+                 likes_counter: 2, author: @officer)
+    Post.create!(title: 'Police life', text: 'Sharing insights into my life as a police officer.', comments_counter: 0,
+                 likes_counter: 2, author: @officer)
+    Post.create!(title: 'Law enforcement challenges', text: 'Discussing challenges faced in law enforcement.',
+                 comments_counter: 0, likes_counter: 2, author: @officer)
+    Post.create!(title: 'Day in the life', text: 'Giving you a glimpse of my typical day.', comments_counter: 0,
+                 likes_counter: 2, author: @officer)
+
+    @student_post = Post.create!(title: 'First day at school', text: 'Exciting times on my first day!',
+                                 comments_counter: 0, likes_counter: 2, author: @student)
     @comment1 = Comment.create(post: @student_post, user: @student, text: 'My comment on the student post')
     @like1 = Like.create(post: @student_post, user: @student)
   end
