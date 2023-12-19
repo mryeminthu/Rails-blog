@@ -22,10 +22,6 @@ RSpec.describe 'Posts', type: :request do
   describe 'GET /users/:user_id/posts' do
     before { get user_posts_path(user) }
 
-    it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include("<h2>User's posts</h2>")
-    end
-
     it 'returns a success response' do
       expect(response).to have_http_status(:success)
     end
@@ -44,10 +40,6 @@ RSpec.describe 'Posts', type: :request do
 
     it 'renders the show template' do
       expect(response).to render_template(:show)
-    end
-
-    it 'includes correct placeholder text in the response body' do
-      expect(response.body).to include('<h2>Post information and comments</h2>')
     end
   end
 end

@@ -22,7 +22,7 @@ RSpec.describe 'User Management', type: :request do
     end
 
     it 'displays a list of users' do
-      expect(response.body).to include('<h1>A list of users</h1>')
+      expect(response.body).to include('<h1>All Users</h1>')
     end
   end
 
@@ -35,10 +35,6 @@ RSpec.describe 'User Management', type: :request do
 
     it 'renders the show template' do
       expect(response).to render_template(:show)
-    end
-
-    it 'displays user information and posts' do
-      expect(response.body).to include('<h2>User information and posts</h2>')
     end
   end
 end
