@@ -51,3 +51,4 @@ RSpec.describe 'User Features', type: :feature do
     end
   end
 end
+
