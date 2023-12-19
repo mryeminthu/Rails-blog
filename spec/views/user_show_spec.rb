@@ -3,9 +3,11 @@ require 'rails_helper'
 RSpec.describe 'User Features', type: :feature do
   before do
     @law_enforcement_officer = User.create!(id: 5, name: 'Tom',
-                                            photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png', bio: 'Law enforcement officer')
+                                            photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png',
+                                            bio: 'Law enforcement officer')
     @high_school_student = User.create!(id: 6, name: 'Lily',
-                                        photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png', bio: 'High school student')
+                                        photo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Profile-720.png',
+                                        bio: 'High school student')
 
     Post.create!(title: 'Introductory Post', text: 'Hello, everyone!', comments_counter: 0, likes_counter: 2,
                  author: @law_enforcement_officer)
