@@ -4,7 +4,11 @@
   <% @users.each do |user| %>
     <div class="user-card">
       <div class="user-photo">
-        <%= image_tag user.photo, alt: "#{user.name}'s photo" %>
+        <% if user.photo && user.photo.attached? %>
+          <%= image_tag user.photo, alt: "#{ user.name }'s photo" %>
+        <% else %>
+          <%= image_tag 'default_image.png', alt: 'Default Photo' %>
+        <% end %>
       </div>
       <div class="user-details">
         <%= link_to user.name, user_path(user) %>

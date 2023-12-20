@@ -1,12 +1,8 @@
 class CommentsController < ApplicationController
-  before_action :set_post, except: [:new]
-
-  def new
-    @comment = Comment.new
-  end
+  before_action :set_post
 
   def create
-    @comment = @post.comments.build(comment_params.merge(user: @current_user))
+    @comment = @post.comments.build(comment_params.merge(user: current_user))
 
     if @comment.save
       redirect_to user_post_path(@post.author, @post), notice: 'Comment added!'
