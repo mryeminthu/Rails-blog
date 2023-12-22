@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :new, :create] do
+    resources :posts, only: [:index, :show, :new, :create, :destroy] do
       post 'like', to: 'likes#create', on: :member, as: :like_post
-      resources :comments, only: [:create, :new]
+      resources :comments, only: [:create, :new, :destroy]
     end
     get 'posts', to: 'posts#index', on: :member, as: :user_posts
   end

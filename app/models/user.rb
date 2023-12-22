@@ -10,6 +10,11 @@ class User < ApplicationRecord
   has_many :likes
   has_one_attached :photo
 
+  enum role: { user: 'user', admin: 'admin' }
+  def is?(requested_role)
+    role == requested_role
+  end
+
   def three_most_recent_posts
     posts.order(created_at: :desc).limit(3)
   end

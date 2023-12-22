@@ -9,7 +9,7 @@
     </div>
     <div class="user-details">
       <%= link_to @user.name, user_path(@user) %>
-      <p>Number of posts: <%= @user.posts_counter %></p>
+      <p>Number of posts: <%= @user.posts.count %></p>
     </div>
   </div>
 </div>
@@ -30,9 +30,16 @@
           <span>Likes: <%= post.likes_counter %></span>
 
           <% if @user && post %>
+          <div class='btn-group'>
             <%= form_with(model: [@user, post.likes.build], url: like_post_user_post_path(@user, post), method: :post, local: true) do |form| %>
               <%= form.submit "Like", class: 'button' %>
             <% end %>
+            <% if can? :destroy, post %>
+    <%= form_with url: user_post_path(post.author, post), method: :delete do |form| %>
+      <%= form.submit 'Delete post', data: { confirm: 'Are you sure?' }, class: "button" %>
+    <% end %>
+  <% end %>
+  </div>
           <% end %>        
         </div>
       </div>

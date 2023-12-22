@@ -33,6 +33,11 @@
     <%= form_with(model: [@post.author, @post.likes.build], url: like_post_user_post_path(@post.author, @post), method: :post, local: true) do |form| %>
       <%= form.submit "Like", class: 'button' %>
     <% end %>    
+    <% if can? :destroy, @post %>
+    <%= form_with url: user_post_path(@post.author, @post), method: :delete do |form| %>
+      <%= form.submit 'Delete post', data: { confirm: 'Are you sure?' }, class: "button" %>
+    <% end %>
+  <% end %>
   </div>
 
   <div class="user-comments">
@@ -42,7 +47,12 @@
       <% if @comments.any? %>
         <% @comments.each do |comment| %>
           <div class="comment">
-            <p><strong><%= comment.user.name %>:</strong> <%= comment.text %></p>
+            <p><strong><%= comment.user.name %>:</strong> <%= comment.text %> </p>
+            <% if can? :destroy, comment %>
+            <%= form_with url: user_post_comment_path(@post.author, @post, comment), method: :delete do |form| %>
+              <%= form.submit 'Delete Comment', data: { confirm: 'Are you sure?' }, class: "comment-delete"%>
+            <% end %>
+          <% end %>
           </div>
         <% end %>
       <% else %>

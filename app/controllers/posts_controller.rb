@@ -27,6 +27,20 @@ class PostsController < ApplicationController
     @user = @post.author
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find_by(id: params[:id])
+    if @post
+      @post.comments.destroy_all
+      @post.destroy
+      flash[:notice] = 'Post was deleted.'
+    else
+      flash[:alert] = 'Post could not be found.'
+    end
+    redirect_to user_posts_path(@user)
+  end
+
+
   private
 
   def set_user
