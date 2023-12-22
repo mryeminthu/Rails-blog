@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show]
   before_action :set_user, only: %i[index show new create]
-
+  load_and_authorize_resource
   def index
     @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 3)
     @post = @posts.first
