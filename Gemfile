@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rubocop', '>= 1.0', '< 2.0', require: false
 
 ruby '3.2.2'
-
+gem 'cancancan'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'devise'
 gem 'rails', '~> 7.1.2'

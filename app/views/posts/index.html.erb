@@ -1,5 +1,6 @@
+<% if current_user == @user %>
 <%= link_to "Create Post", new_user_post_path(@user), class: 'button' %>
-
+<% end %>
 <div class="users-container">
   <div class="user-card">
     <div class="user-photo">
