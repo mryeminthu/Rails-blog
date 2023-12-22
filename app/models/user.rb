@@ -11,8 +11,13 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   enum role: { user: 'user', admin: 'admin' }
+
   def is?(requested_role)
     role == requested_role
+  end
+
+  def admin?
+    role == 'admin'
   end
 
   def three_most_recent_posts
