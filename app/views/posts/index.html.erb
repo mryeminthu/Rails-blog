@@ -3,11 +3,15 @@
 <div class="users-container">
   <div class="user-card">
     <div class="user-photo">
-      <%= image_tag @user.photo, alt: "#{ @user.name }'s photo" %>
+      <% if @user.photo.attached? %>
+        <%= image_tag @user.photo, alt: "#{ @user.name }'s photo" %>
+      <% else %>
+        <%= image_tag 'default_image.png', alt: 'Default Photo' %> 
+      <% end %>
     </div>
     <div class="user-details">
       <%= link_to @user.name, user_path(@user) %>
-      <p>Number of posts: <%= @user.posts_counter %></p>
+      <p>Number of posts: <%= @user.posts.count %></p> <!-- Change to count since you want the total count -->
     </div>
   </div>
 </div>
@@ -15,7 +19,7 @@
 <div class="user-posts">
   <% @posts.each do |post| %>
     <div class="post">
-      <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
+      <h3><%= link_to post.title, user_post_path(post.author, post) %></h3> <!-- Corrected path to post.author -->
       <p><%= post.text %></p>
       <div class="cmt-like">
         <span>Comments: <%= post.comments_counter %></span>
@@ -31,7 +35,7 @@
               </div>
             <% end %>
           <% else %>
-            <p>No comment yet!</p>
+            <p>No comments yet!</p>
           <% end %>
         </div>
       </div>
