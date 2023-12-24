@@ -102,8 +102,8 @@ rails server
 
 👤 **Ye Min Thu**
 
-- GitHub: [@githubhandle](https://github.com/mryeminthu)
-- Twitter: [@twitterhandle](https://twitter.com/mryeminthu)
+- GitHub: [GitHub](https://github.com/mryeminthu)
+- Twitter: [Twitter](https://twitter.com/mryeminthu)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/ye-min-thu-76456a214/)
 
 ## 🔭 Future Features <a name="future-features"></a>
